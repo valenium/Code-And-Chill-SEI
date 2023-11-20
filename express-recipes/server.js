@@ -10,6 +10,7 @@ require('./config/database')
 
 const indexRouter = require('./routes/index');
 const recipesRouter = require('./routes/recipes');
+const reviewsRouter = require('./routes/reviews');
 const { config } = require('dotenv');
 
 const app = express();
@@ -27,6 +28,7 @@ app.use(methodOverride('_method'))
 
 app.use('/', indexRouter);
 app.use('/recipes', recipesRouter);
+app.use('/', reviewsRouter);
 
 // catch 404 and forward to error handler
 // app.use(function(req, res, next) {
