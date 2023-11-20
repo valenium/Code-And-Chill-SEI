@@ -1,0 +1,9 @@
+<%- include('../partials/header.ejs') %> 
+<% recipes.forEach(recipe => { %>
+<div>
+	<span> <%=recipe.name %> </span>
+	<span> <%= recipe.category %> </span>
+	<a href="/recipes/<%= recipe._id %>">show details</a>
+</div>
+<%})%> 
+<%- include('../partials/footer.ejs') %>
