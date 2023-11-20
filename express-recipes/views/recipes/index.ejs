@@ -1,13 +1,30 @@
 <%- include('../partials/header.ejs') %> 
 
 <main>
-<% recipes.forEach(recipe => { %>
 <div>
-	<span> <%=recipe.name %> </span>
-	<span> <%= recipe.category %> </span>
-	<a href="/recipes/<%= recipe._id %>">show details</a>
+	<div>
+	<h2 class="sub-heading">Name</h2>
+	<% recipes.forEach(recipe => { %>
+	<span class="index-name"> <%=recipe.name %> </span><br>
+	<%})%> 
 </div>
-<%})%> 
+
+	<div>
+	<h2 class="sub-heading">Category</h2>
+	<% recipes.forEach(recipe => { %>
+	<span class="index-category"> <%= recipe.category %> </span><br>
+	<%})%> 
+	
+	</div>
+		<div class="">
+			<h2 class="get-recipehead">Get Recipe</h2>
+	<% recipes.forEach(recipe => { %>
+	<span><a href="/recipes/<%= recipe._id %>">show details</a></span><br>
+	<%})%> 
+</div>
+
+</div>
+
 </main>
 
 <%- include('../partials/footer.ejs') %>

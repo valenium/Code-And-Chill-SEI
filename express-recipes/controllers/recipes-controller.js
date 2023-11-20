@@ -6,9 +6,9 @@ module.exports = {
 	create,
 	index,
 	show,
-  update,
-  edit,
-  delete: deleteRecipe,
+    update,
+    edit,
+    delete: deleteRecipe,
 }
 
 function newRecipe(req, res) {
