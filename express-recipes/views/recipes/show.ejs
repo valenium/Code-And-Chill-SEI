@@ -1,6 +1,6 @@
 <%- include('../partials/header.ejs') %>
 
-<section>
+<main>
 	<div>Name <%=recipe.name %></div>
 
 	<div>Category <%= recipe.category %></div>
@@ -11,7 +11,9 @@
 
 	<div>Instructions <%= recipe.instructions %></div>
 
+	<div><a href="/recipes/<%= recipe._id %>/edit"><button>Edit Recipe</button></a></div>
+
 	<div>Comments <%= recipe.comments %></div>
-</section>
+</main>
 
 <%- include('../partials/footer.ejs') %>
