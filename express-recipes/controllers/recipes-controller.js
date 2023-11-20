@@ -51,6 +51,8 @@ async function show(req, res) {
 }
 
 async function update(req,res){
+    if(req.body.ingredients) req.body.ingredients = req.body.ingredients.split(/\s*,\s*/)
+    if(req.body.instructions) req.body.instructions = req.body.instructions.split(/\s*,\s*/)
     try{
         await Recipe.findById(req.params.id)
         await Recipe.findOne(req.body)
@@ -62,6 +64,7 @@ async function update(req,res){
 }
 
 async function edit(req,res){
+
     try {
         const recipe = await Recipe.findById(req.params.id)
         res.render('recipes/edit', { title: 'Edit Recipe', recipe})

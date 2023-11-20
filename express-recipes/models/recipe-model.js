@@ -8,6 +8,14 @@ const reviewSchema = new Schema(
 	},
 	{ timestamps: true }
 )
+const ratingSchema = new Schema ({
+    score: {
+        type: Number,
+        enum: [1, 2, 3, 4, 5]
+    }
+},{
+    timestamps: true
+})
 
 const recipeSchema = new Schema ({
     name: {
@@ -28,6 +36,8 @@ const recipeSchema = new Schema ({
         type: [String],
     },
     comments: [reviewSchema],
+
+    ratings: [ratingSchema],
 }, {
     timestamps: true
 })
