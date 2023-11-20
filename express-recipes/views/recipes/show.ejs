@@ -3,17 +3,24 @@
 	<button type="submit">Delete</button>
 </form>
 <section>
-	<div>Name <%=recipe.name %></div>
+	<div>Name: <%=recipe.name %></div>
 
-	<div>Category <%= recipe.category %></div>
+	<div>Category: <%= recipe.category %></div>
 
-	<div>Description <%= recipe.description %></div>
+	<div>Description: <%= recipe.description %></div>
+	<div>Ingredients: 
+		<ul><% recipe.ingredients.forEach(ingredient => { %>
+			<li> <%= ingredient %></li>
+		<% }) %></ul>
+	</div>
 
-	<div>Ingredients <%= recipe.ingredients %></div>
+	<div>Instructions: 
+		<ol><%recipe.instructions.forEach(instruction => { %>
+			<li> <%= instruction %></li>
+		<% }) %></ol>
+	</div>
 
-	<div>Instructions <%= recipe.instructions %></div>
-
-	<div>Comments <%= recipe.comments %></div>
+	<div>Comments: <%= recipe.comments %></div>
 </section>
 
 
