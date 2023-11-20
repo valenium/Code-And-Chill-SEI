@@ -1,6 +1,14 @@
 const mongoose = require('mongoose')
 const Schema = mongoose.Schema
 
+const reviewSchema = new Schema(
+	{
+		name: { type: String, default: 'anonymous' },
+		body: { type: String, required: true },
+	},
+	{ timestamps: true }
+)
+
 const recipeSchema = new Schema ({
     name: {
         type: String,
@@ -14,14 +22,12 @@ const recipeSchema = new Schema ({
         type: String,
     },
     instructions: {
-        type: String,
+        type: [String],
     },
     ingredients: {
-        type: String,
+        type: [String],
     },
-    comments: {
-        type: String
-    }
+    comments: [reviewSchema],
 }, {
     timestamps: true
 })

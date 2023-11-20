@@ -1,19 +1,71 @@
 <%- include('../partials/header.ejs') %>
 
-<main>
-	<div>Name <%=recipe.name %></div>
+<a href="/recipes/<%= recipe._id %>/edit"><button>Edit Recipe</button></a>
+<form action="/recipes/<%=recipe._id%>?_method=DELETE" method="POST" id="delete-recipe">
+	<button type="submit">Delete</button>
+</form>
+<section>
+	<div>Name: <%=recipe.name %></div>
 
-	<div>Category <%= recipe.category %></div>
+	<div>Category: <%= recipe.category %></div>
 
-	<div>Description <%= recipe.description %></div>
+	<div>Description: <%= recipe.description %></div>
+  
+	<div>Ingredients: 
+		<ul><% recipe.ingredients.forEach(ingredient => { %>
+			<li> <%= ingredient %></li>
+		<% }) %></ul>
+	</div>
 
-	<div>Ingredients <%= recipe.ingredients %></div>
+	<div>Instructions: 
+		<ol><%recipe.instructions.forEach(instruction => { %>
+			<li> <%= instruction %></li>
+		<% }) %></ol>
+	</div>
+</section>
 
-	<div>Instructions <%= recipe.instructions %></div>
-
-	<div><a href="/recipes/<%= recipe._id %>/edit"><button>Edit Recipe</button></a></div>
+<section>
+	<h2>Rating</h2>
+	<form action="" method="post">
+		<select name="rating" id="rating">
+			<option value="1">1</option>
+			<option value="2">2</option>
+			<option value="3">3</option>
+			<option value="4">4</option>
+			<option value="5">5</option>
+		</select>
+		<button type="submit">Rate</button>
+	</form>
+</section>
+	
 
 	<div>Comments <%= recipe.comments %></div>
+
+<section>
+	<h2>Comments</h2>
+	<% recipe.comments.forEach(comment => { %>
+	<div>
+		<p>
+			<strong> <%= comment.name %> </strong>
+		</p>
+		<p><%= comment.body %></p>
+	</div>
+	<% }) %>
+    <h3>Add Comment</h3>
+    <form action="/recipes/<%= recipe._id %>/comments" method="post">
+		<div>
+			<label for="name">Name </label>
+			<input type="text" name="name" id="name" />
+		</div>
+		<div>
+			<label for="body">Comment </label>
+			<textarea type="text" name="body" id="body" required></textarea>
+		</div>
+		<button type="submit">Add comment</button>
+	</form>
+</section>
 </main>
+
+
 
 <%- include('../partials/footer.ejs') %>
