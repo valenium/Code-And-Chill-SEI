@@ -8,10 +8,10 @@ module.exports = {
 }
 
 function newRecipe(req,res) {
-    res.send('New Recipe Page')
+    // res.send('New Recipe Page')
 
-    //res.render('recipes/new', {
-        // title: 'Add New Recipe',
-        // errorMsg: ''
-    // })
+    res.render('recipes/new', {
+        title: 'Add New Recipe',
+        errorMsg: ''
+    })
 }
