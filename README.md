@@ -26,9 +26,22 @@ New recipe
 # Roadmap
 
 Collaborate together
-- Setup models
+- Setup recipe models ✅
 - New recipe
+  Routes ✅
+  - GET new recipes ✅
+  - POST new recipes
+  Views
+  - New recipes ✅
+  Controller
+  - newRecipes ✅
+  - create
 - Recipe Index
+  Routes
+  - GET recipes
+  Views
+  - Index recipes
+  - Controller
 
 Task Assignment
 Parth
