@@ -1,4 +1,6 @@
 <%- include('../partials/header.ejs') %> 
+
+<main>
 <% recipes.forEach(recipe => { %>
 <div>
 	<span> <%=recipe.name %> </span>
@@ -6,4 +8,6 @@
 	<a href="/recipes/<%= recipe._id %>">show details</a>
 </div>
 <%})%> 
+</main>
+
 <%- include('../partials/footer.ejs') %>

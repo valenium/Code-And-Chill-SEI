@@ -1,3 +1,4 @@
+const { MongoDriverError } = require('mongodb')
 const Recipe = require('../models/recipe-model')
 
 module.exports = {
@@ -5,7 +6,9 @@ module.exports = {
 	create,
 	index,
 	show,
-    delete: deleteRecipe,
+  update,
+  edit,
+  delete: deleteRecipe,
 }
 
 function newRecipe(req, res) {
@@ -47,6 +50,26 @@ async function show(req, res) {
 	}
 }
 
+async function update(req,res){
+    try{
+        await Recipe.findById(req.params.id)
+        await Recipe.findOne(req.body)
+        await Recipe.updateOne({_id: req.params.id}, {$set: req.body})
+        res.redirect(`/recipes/${req.params.id}`)
+    }catch(err){
+        console.log(err)
+    }
+}
+
+async function edit(req,res){
+    try {
+        const recipe = await Recipe.findById(req.params.id)
+        res.render('recipes/edit', { title: 'Edit Recipe', recipe})
+    } catch (err) {
+		console.log(err)
+	}
+}
+
 async function deleteRecipe(req,res) {
 try{
     await Recipe.findByIdAndDelete(req.params.id)
@@ -55,4 +78,3 @@ try{
     console.log(err)
 }
 }
-

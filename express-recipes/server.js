@@ -5,13 +5,14 @@ const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const methodOverride = require('method-override')
 
+const methodOverride = require('method-override')
+
 require('dotenv').config()
 require('./config/database')
 
 const indexRouter = require('./routes/index');
 const recipesRouter = require('./routes/recipes');
 const reviewsRouter = require('./routes/reviews');
-const { config } = require('dotenv');
 
 const app = express();
 
@@ -24,6 +25,8 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(methodOverride('_method'))
+
 app.use(methodOverride('_method'))
 
 app.use('/', indexRouter);
