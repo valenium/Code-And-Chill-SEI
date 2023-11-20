@@ -11,5 +11,6 @@ router.post('/', recipesCtrl.create)
 router.get('/new', recipesCtrl.new)
 
 router.get('/:id', recipesCtrl.show)
+router.delete('/:id', recipesCtrl.delete)
 
 module.exports = router;
