@@ -1,5 +1,7 @@
 <%- include('../partials/header.ejs') %>
-
+<form action="/recipes/<%=recipe._id%>?_method=DELETE" method="POST" id="delete-recipe">
+	<button type="submit">Delete</button>
+</form>
 <section>
 	<div>Name <%=recipe.name %></div>
 
@@ -13,5 +15,6 @@
 
 	<div>Comments <%= recipe.comments %></div>
 </section>
+
 
 <%- include('../partials/footer.ejs') %>
