@@ -11,7 +11,7 @@
 	<div>Category: <%= recipe.category %></div>
 
 	<div>Description: <%= recipe.description %></div>
-  
+
 	<div>Ingredients: 
 		<ul><% recipe.ingredients.forEach(ingredient => { %>
 			<li> <%= ingredient %></li>
@@ -27,8 +27,8 @@
 
 <section>
 	<h2>Rating</h2>
-	<form action="" method="post">
-		<select name="rating" id="rating">
+	<form action="/recipes/<%=recipe._id%>/ratings" method="post">
+		<select name="score" id="rating">
 			<option value="1">1</option>
 			<option value="2">2</option>
 			<option value="3">3</option>
@@ -37,6 +37,21 @@
 		</select>
 		<button type="submit">Rate</button>
 	</form>
+	<div>
+		<% let sum = 0 %>
+		<% let average = 0 %>
+		<% if (recipe.ratings.length > 0) { %>
+		<% recipe.ratings.forEach(rating => { %>
+			<% sum += rating.score %>
+			<% average = sum / recipe.ratings.length %>
+			<% average = Math.round(average*100)/100 %>
+			<% return average %>
+			<%})%>
+		<p> <%= average %> / 5</p>
+		<% } else { %>
+		<p> No ratings yet</p>
+		<% } %>
+	</div>
 </section>
 
 <section>
