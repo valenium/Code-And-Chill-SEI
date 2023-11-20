@@ -12,8 +12,44 @@
 	<div>Ingredients <%= recipe.ingredients %></div>
 
 	<div>Instructions <%= recipe.instructions %></div>
+</section>
 
-	<div>Comments <%= recipe.comments %></div>
+<section>
+	<h2>Rating</h2>
+	<form action="" method="post">
+		<select name="rating" id="rating">
+			<option value="1">1</option>
+			<option value="2">2</option>
+			<option value="3">3</option>
+			<option value="4">4</option>
+			<option value="5">5</option>
+		</select>
+		<button type="submit">Rate</button>
+	</form>
+</section>
+
+<section>
+	<h2>Comments</h2>
+	<% recipe.comments.forEach(comment => { %>
+	<div>
+		<p>
+			<strong> <%= comment.name %> </strong>
+		</p>
+		<p><%= comment.body %></p>
+	</div>
+	<% }) %>
+    <h3>Add Comment</h3>
+    <form action="/recipes/<%= recipe._id %>/comments" method="post">
+		<div>
+			<label for="name">Name </label>
+			<input type="text" name="name" id="name" />
+		</div>
+		<div>
+			<label for="body">Comment </label>
+			<textarea type="text" name="body" id="body" required></textarea>
+		</div>
+		<button type="submit">Add comment</button>
+	</form>
 </section>
 
 
