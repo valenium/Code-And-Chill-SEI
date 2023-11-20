@@ -27,25 +27,29 @@ New recipe
 
 Collaborate together
 - Setup recipe models ✅
-- New recipe
+- New recipe✅
   Routes ✅
-  - GET new recipes ✅
+  - GET new recipes 
   - POST new recipes
   Views
   - New recipes ✅
   Controller
   - newRecipes ✅
-  - create
-- Recipe Index
-  Routes
+  - create ✅
+- Recipe Index✅
+  Routes✅
   - GET recipes
-  Views
+  Views ✅
   - Index recipes
-  - Controller
+  Controller✅
 
 Task Assignment
 Parth
-
+- Destroy
+- Edit existing functions
+  
 Jeff
+- 1:M
 
 Valerie
+- Edit/Update
